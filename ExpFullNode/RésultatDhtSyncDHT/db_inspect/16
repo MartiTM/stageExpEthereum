@@ -1,0 +1,29 @@
++-----------------+---------------------+------------+-------+
+|    DATABASE     |      CATEGORY       |    SIZE    | ITEMS |
++-----------------+---------------------+------------+-------+
+| Key-Value store | Headers             | 568.56 KiB |  1005 |
+| Key-Value store | Bodies              | 279.00 MiB |  1005 |
+| Key-Value store | Receipt lists       | 146.38 KiB |  1005 |
+| Key-Value store | Difficulties        | 46.12 KiB  |  1005 |
+| Key-Value store | Block number->hash  | 41.22 KiB  |  1005 |
+| Key-Value store | Block hash->number  | 302.58 KiB |  7557 |
+| Key-Value store | Transaction index   | 2.58 MiB   | 77422 |
+| Key-Value store | Bloombit index      | 86.06 KiB  |  2050 |
+| Key-Value store | Contract codes      | 0.00 B     |     0 |
+| Key-Value store | Trie nodes          | 9.37 KiB   |    65 |
+| Key-Value store | Trie preimages      | 0.00 B     |     0 |
+| Key-Value store | Account snapshot    | 46.00 B    |     1 |
+| Key-Value store | Storage snapshot    | 0.00 B     |     0 |
+| Key-Value store | Beacon sync headers | 0.00 B     |     0 |
+| Key-Value store | Clique snapshots    | 0.00 B     |     0 |
+| Key-Value store | Singleton metadata  | 50.81 KiB  |    11 |
+| Ancient store   | Headers             | 1.97 MiB   |  6553 |
+| Ancient store   | Bodies              | 1.18 GiB   |  6553 |
+| Ancient store   | Receipt lists       | 457.33 KiB |  6553 |
+| Ancient store   | Difficulties        | 70.27 KiB  |  6553 |
+| Ancient store   | Block number->hash  | 243.18 KiB |  6553 |
+| Light client    | CHT trie nodes      | 0.00 B     |     0 |
+| Light client    | Bloom trie nodes    | 0.00 B     |     0 |
++-----------------+---------------------+------------+-------+
+|                          TOTAL        |  1.46 GIB  |       |
++-----------------+---------------------+------------+-------+

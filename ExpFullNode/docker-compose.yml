@@ -1,0 +1,445 @@
+version: '3.7'
+
+services:
+  bootnode:
+    hostname: bootnode
+    env_file:
+      - .env
+    image: gethbootnode
+    build:
+      context: .
+    command:
+      --nodekeyhex="b0ac22adcad37213c7c565810a50f1772291e7b0ce53fb73e7ec2a3c75bc13b5"
+      --verbosity=4
+    ports:
+      - "30301:30301"
+    networks:
+      priv-eth-net-clientDHT:
+
+  bis-1:
+    hostname: bis-1
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode   
+    command:
+      --nodekeyhex="fa2e52639614ec1e80c84592858889c075f4abbc057c483edb9b4fcfdf7eb6da"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30304"
+      --v5disc
+      --kBucket=4
+      --verbosity=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6061" 
+
+    ports:
+      - "6061:6061"
+      - "30304:30304"
+    networks:
+      priv-eth-net-clientDHT:
+  
+  bis-2:
+    hostname: bis-2
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode  
+    command:
+      --nodekeyhex="87c03102f1f48dd6f25d530ffba575c6aad72055198305c4a1cb8cc36bfb1106"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30305"
+      --v5disc
+      --kBucket=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6062" 
+
+    ports:
+      - "6062:6062"
+      - "30305:30305"
+    networks:
+      priv-eth-net-clientDHT:
+  
+  bis-3:
+    hostname: bis-3
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode  
+    command:
+      --nodekeyhex="cc1d77218f96b8a2595229234420380b5bbdf890fc2c97c204a08e0dfe3fabfb"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30306"
+      --v5disc
+      --kBucket=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6063"
+
+    ports:
+      - "6063:6063"
+      - "30306:30306"
+    networks:
+      priv-eth-net-clientDHT:
+  
+  bis-4:
+    hostname: bis-4
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode  
+    command:
+      --nodekeyhex="f4f9575628a8c274a347be111b727bbe98f22cc01b90d268842e59fa203feda2"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30307"
+      --v5disc
+      --kBucket=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6064" 
+
+    ports:
+      - "6064:6064"
+      - "30307:30307"
+    networks:
+      priv-eth-net-clientDHT:
+  
+  bis-5:
+    hostname: bis-5
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode  
+    command:
+      --nodekeyhex="9e5fd268083a7ebdb25393d76613c0b96f10c67c03f388fa868093855237c89a"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30308"
+      --v5disc
+      --kBucket=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6065" 
+
+    ports:
+      - "6065:6065"
+      - "30308:30308"
+    networks:
+      priv-eth-net-clientDHT:
+  
+  bis-6:
+    hostname: bis-6
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode  
+    command:
+      --nodekeyhex="0ba12651ea434d1caa3bf6d7132d181f8c2c7fd93719f69eb67d48cdcb1e6a3a"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30309"
+      --v5disc
+      --kBucket=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6066" 
+
+    ports:
+      - "6066:6066"
+      - "30309:30309"
+    networks:
+      priv-eth-net-clientDHT:
+  
+  bis-7:
+    hostname: bis-7
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode  
+    command:
+      --nodekeyhex="f01176d4022566d0ecaf2cf818f64cd2c914aae49b29e7a1cf9401c982f0372f"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30310"
+      --v5disc
+      --kBucket=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6067" 
+
+    ports:
+      - "6067:6067"
+      - "30310:30310"
+    networks:
+      priv-eth-net-clientDHT:
+  
+  bis-8:
+    hostname: bis-8
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode  
+    command:
+      --nodekeyhex="62ff099113204864e36207b335ec78bc4f81bea8c4505df4a49f7cd384d2a13c"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30311"
+      --v5disc
+      --kBucket=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6068" 
+
+    ports:
+      - "6068:6068"
+      - "30311:30311"
+    networks:
+      priv-eth-net-clientDHT:
+
+  bis-9:
+    hostname: bis-9
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode  
+    command:
+      --nodekeyhex="0b2d8bd14307e659cc918cd1b5c8023bac82699cbff5963d66f282a7a158c755"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30312"
+      --v5disc
+      --kBucket=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6069" 
+
+    ports:
+      - "6069:6069"
+      - "30312:30312"
+    networks:
+      priv-eth-net-clientDHT:
+
+  bis-10:
+    hostname: bis-10
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode  
+    command:
+      --nodekeyhex="4ed440305c9560719a5a69bfaf3780c6337e32ced3530c64bfcfb3fe5c3da015"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30313"
+      --v5disc
+      --kBucket=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6070" 
+
+    ports:
+      - "6070:6070"
+      - "30313:30313"
+    networks:
+      priv-eth-net-clientDHT:
+
+  bis-11:
+    hostname: bis-11
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode  
+    command:
+      --nodekeyhex="b840b8c10deb219574a4c939c4f4846b941af656cfc3f156b5026b1c5fde5df3"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30314"
+      --v5disc
+      --kBucket=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6071" 
+
+    ports:
+      - "6071:6071"
+      - "30314:30314"
+    networks:
+      priv-eth-net-clientDHT:
+
+  bis-12:
+    hostname: bis-12
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode  
+    command:
+      --nodekeyhex="2ae23dbb5bbaf127c1dbb7301caf4ac484322f68801740a04222fd804f0e378e"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30315"
+      --v5disc
+      --kBucket=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6072" 
+
+    ports:
+      - "6072:6072"
+      - "30315:30315"
+    networks:
+      priv-eth-net-clientDHT:
+
+  bis-13:
+    hostname: bis-13
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode  
+    command:
+      --nodekeyhex="495f034f44e29bfac4c33757e4bf9765cd00e659da503034886a6c5e0fd2ebdc"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30316"
+      --v5disc
+      --kBucket=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6073"
+
+    ports:
+      - "6073:6073"
+      - "30316:30316"
+    networks:
+      priv-eth-net-clientDHT:
+
+  bis-14:
+    hostname: bis-14
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode  
+    command:
+      --nodekeyhex="57e329fed3f588b2e592c22891b4ceec7d073d6284f93d59195fa0a688124171"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30317"
+      --v5disc
+      --kBucket=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6074" 
+
+    ports:
+      - "6074:6074"
+      - "30317:30317"
+    networks:
+      priv-eth-net-clientDHT:
+
+  bis-15:
+    hostname: bis-15
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode  
+    command:
+      --nodekeyhex="d60413bfe126b0ac34f1746f3a6b4426b6c0c7bb594d6b875d083a4542e74fa1"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30318"
+      --v5disc
+      --kBucket=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6075" 
+
+    ports:
+      - "6075:6075"
+      - "30318:30318"
+    networks:
+      priv-eth-net-clientDHT:
+
+  miner:
+    hostname: miner
+    env_file:
+      - .env
+    image: gethavecdata
+    depends_on:
+      - bootnode
+    command:
+      --nodekeyhex="483aa9d6512a75f5d0991e799981686ef7768689b21ea20c7d55bc2843988697"
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@bootnode:30301"
+      --mine
+      --miner.threads=1
+      --miner.noverify
+      --ipcdisable
+      --networkid=1214
+      --netrestrict="172.16.238.0/24"
+      --port="30319"
+      --v5disc
+      --kBucket=4
+      --metrics
+      --metrics.expensive
+      --metrics.addr="0.0.0.0"
+      --metrics.port="6076" 
+
+    ports:
+      - "6076:6076"
+      - "30319:30319"
+    networks:
+      priv-eth-net-clientDHT:
+
+networks:
+  priv-eth-net-clientDHT:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.16.238.0/24
